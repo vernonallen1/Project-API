@@ -1,0 +1,56 @@
+[
+    {
+        "firstname" : "Zarah",
+        "middlename" : "Harake",
+        "lastname" : "Mangano",
+        "usertype" : "Approver",
+        "upmail" : "zhmangano@up.edu.ph",
+        "password" : "zhmangano",
+        "handledapplications" : []
+    },
+    {
+        "firstname" : "Haney",
+        "middlename" : "Grace",
+        "lastname" : "Amber",
+        "usertype" : "Approver",
+        "upmail" : "hgamber2@up.edu.ph",
+        "password" : "hgamber",
+        "handledapplications" : []
+    },
+    {
+        "firstname" : "Robin",
+        "middlename" : "Marco",
+        "lastname" : "Dinero",
+        "usertype" : "Approver",
+        "upmail" : "rmdinero@up.edu.ph",
+        "password" : "rmdinero",
+        "handledapplications" : []
+    },
+    {
+        "firstname" : "Yesha",
+        "middlename" : "Dee",
+        "lastname" : "Milan",
+        "usertype" : "Approver",
+        "upmail" : "ydmilan@up.edu.ph",
+        "password" : "ydmilan",
+        "handledapplications" : []
+    },
+    {
+        "firstname" : "Jamie",
+        "middlename" : "Jones",
+        "lastname" : "Tyrus",
+        "usertype" : "Approver",
+        "upmail" : "jjtyrus@up.edu.ph",
+        "password" : "jjtyrus",
+        "handledapplications" : []
+    },
+    {
+        "firstname" : "Diana",
+        "middlename" : "Lee",
+        "lastname" : "Alwyn",
+        "usertype" : "Approver",
+        "upmail" : "dlalwyn2@up.edu.ph",
+        "password" : "dlalwyn",
+        "handledapplications" : []
+    }
+]

@@ -1,0 +1,112 @@
+[
+    {
+        "firstname" : "John",
+        "middlename" : "Robert",
+        "lastname" : "Smith",
+        "studentnumber" : "2021-01985",
+        "usertype" : "Student",
+        "upmail" : "jrsmith2@up.edu.ph",
+        "password" : "jrsmith",
+        "adviser" : "",
+        "applications" : []
+    },
+    {
+        "firstname" : "Emily",
+        "middlename" : "Anne",
+        "lastname" : "Jones",
+        "studentnumber" : "2020-10023",
+        "usertype" : "Student",
+        "upmail" : "eajones4@upeajones",
+        "password" : "eajones",
+        "adviser" : "",
+        "applications" : []
+    },
+    {
+        "firstname" : "Michael",
+        "middlename" : "James",
+        "lastname" : "Davis",
+        "studentnumber" : "2019-03377",
+        "usertype" : "Student",
+        "upmail" : "mjdavis@up.edu.ph",
+        "password" : "mjdavis",
+        "adviser" : "",
+        "applications" : [] 
+    },
+    {
+        "firstname" : "Sophia",
+        "middlename" : "Grace",
+        "lastname" : "Wilson",
+        "studentnumber" : "2022-00122",
+        "usertype" : "Student",
+        "upmail" : "sgwilson@upsgwilson",
+        "password" : "sgwilson",
+        "adviser" : "",
+        "applications" : []
+    },
+    {
+        "firstname" : "David",
+        "middlename" : "Alexander",
+        "lastname" : "Thompson",
+        "studentnumber" : "2021-07803",
+        "usertype" : "Student",
+        "upmail" : "dathompson@up.edu.ph", 
+        "password" : "dathompson",
+        "adviser" : "",
+        "applications" : []
+    },
+    {
+        "firstname" : "Olivia",
+        "middlename" : "Rose",
+        "lastname" : "Miller",
+        "studentnumber" : "2020-01154",
+        "usertype" : "Student",
+        "upmail" : "ormiller@up.edu.ph", 
+        "password" : "ormiller",
+        "adviser" : "",
+        "applications" : []
+    },
+    {
+        "firstname" : "James",
+        "middlename" : "Thomas",
+        "lastname" : "Brown",
+        "studentnumber" : "2022-02394",
+        "usertype" : "Student",
+        "upmail" : "jtthomas2@up.edu.ph", 
+        "password" : "jtthomas",
+        "adviser" : "",
+        "applications" : []
+    },
+    {
+        "firstname" : "Ava",
+        "middlename" : "Elizabeth",
+        "lastname" : "Anderson",
+        "studentnumber" : "2019-03431",
+        "usertype" : "Student",
+        "upmail" : "aeanderson@up.edu.ph",
+        "password" : "aeanderson",
+        "adviser" : "",
+        "applications" : []
+    },
+    {
+        "firstname" : "William",
+        "middlename" : "Calvin",
+        "lastname" : "Harris",
+        "studentnumber": "2018-02101",
+        "usertype" : "Student",
+        "upmail" : "wcharris@up.edu.ph",
+        "password" : "wcharris",
+        "adviser" : "",
+        "applications" : []
+    },
+    {
+        "firstname" : "Emma",
+        "middlename" : "Louise",
+        "lastname" : "Jackson",
+        "studentnumber" : "2018-11760",
+        "usertype" : "Student",
+        "upmail" : "eljackson@up.edu.ph",
+        "password" : "eljackson",
+        "adviser" : "",
+        "applications" : []
+    }
+]
