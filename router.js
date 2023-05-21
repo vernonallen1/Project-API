@@ -44,7 +44,7 @@ export default function router(app) {
   //Approver
   app.get("/get-all-approvers", getApprovers); //working
   app.post("/add-approver", addApprover); //working
-  app.delete("/delete-approver/:approverEmail", deleteApprover);
+  app.delete("/delete-approver/:approverEmail", deleteApprover); //working
 
   // Student Application APIs
 }
