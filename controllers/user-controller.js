@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { ObjectId } from 'mongodb';
 
 await mongoose.connect("mongodb://127.0.0.1:27017/SIETE");
 
@@ -26,6 +27,23 @@ const getStudentByStudentsNumber = async (req, res) => {
   const student = await User.findOne({ usertype: 'Student', studentnumber: studentnumber });
   res.send(student);
 };
+
+const getStudentByName = async (req, res) => {
+  const {firstname, middlename, lastname} = req.body;
+  
+  try {
+    const student = await User.findOne({usertype: 'Student', firstname: firstname, middlename: middlename, lastname: lastname});
+    if (student) {
+      res.send(student);
+    } else {
+      res.status(404).send("Students was not found!");
+    }
+    
+  } catch (error) {
+    res.status(500).send('Error retrieving student');
+  }
+  
+}
 
 //get student alphabetically sorted by their firts names
 const getStudentsSortedByFirstame = async (req, res) => {
@@ -107,15 +125,48 @@ const addStudentApplication = async (req, res) => {
 };
 
 const assignAdviser = async (req, res) => {
-  const { adviser, studentId } = req.body;
-
-  const studentObjectId = mongoose.Types.ObjectId(studentId);
-
-  const result = await User.updateOne(
-    { _id: studentObjectId },
-    { $set: { adviser: adviser } }
-  );
+    const { adviserEmail, studentnumber } = req.body;
+    const adviser = await User.findOne({upmail: adviserEmail});
+    console.log(adviser);
+    const adviserObjectId = new ObjectId(adviser._id);
+    console.log(adviserObjectId);
+    const result = await User.updateOne({usertype: 'Student', studentnumber: studentnumber}, {$set : {adviser : adviserObjectId}})
+    if (result.modifiedCount > 0) {
+      res.send({"success" : true});
+    } else {
+      res.send({"succes" : false});
+    }
 };
+
+const getStudentAdviser = async(req, res) => {
+  const {studentnumber} = req.body;
+  try {
+    const adviser = await User.aggregate([
+      {
+        $match: {
+          studentnumber: studentnumber,
+        }
+      },
+      {
+        $lookup: {
+          from: "users",
+          localField: "adviser",
+          foreignField: "_id",
+          as: "adviser"
+        }
+      },
+      {
+        $project: {
+          adviser: 1
+        }
+      }
+    ]);
+    console.log(adviser);
+    res.send(adviser);
+  } catch (error) {
+    res.status(500).send("An error has occured");
+  }
+}
 
 const getApprovers = async (req, res) => {
   const approvers = await User.find({usertype: 'Approver'});
@@ -159,16 +210,85 @@ const deleteApprover = async (req, res) => {
   }
 }
 
+const getApproverByName = async (req, res) => {
+  const {firstname, middlename, lastname } = req.body;
+
+  try {
+    const approver = await User.findOne({usertype: 'Approver', firstname: firstname, middlename: middlename, lastname: lastname});
+    if (approver) {
+      res.send(approver);
+    } else {
+      res.status(404).send("User was not found");
+    }
+  } catch (error) {
+    res.status(500).send('Error deleting user');
+  }
+}
+
+const getApproversSortedByName = async (req, res) => {
+  const { isAscending } = req.body;
+
+  try {
+    var approvers;
+    if (isAscending) {
+      approvers = await User.find({usertype: 'Approver'}).sort({firstname: 1})
+    } else {
+      approvers = await User.find({usertype: 'Approver'}).sort({firstname: -1})
+    }
+    res.send(approvers);
+  } catch (error) {
+    res.status(500).send('There was an error!');
+  } 
+}
+
+const getApplicationsByApprover = async(req, res) => {
+  const {upmail} = req.body;
+  console.log(upmail);
+  try {
+    const applications = await User.aggregate([
+      {
+        $match: {
+          upmail: upmail,
+          usertype: "Student"
+        }
+      },
+      {
+        $lookup: {
+          from: "applications",
+          localField: "applications",
+          foreignField: "_id",
+          as: "applications"
+        }
+      }
+    ]);
+    if (applications[0]["applications"].length > 0){
+      res.send(applications[0]["applications"]);
+    } else if (applications[0]["applications"].length === 0){
+      res.send([]);
+    } else {
+      res.status(404).send("Error");
+    }
+    
+  } catch (error) {
+    res.status(500).send("An error has occured");
+  }
+}
+
 export {
   getStudents,
   getStudentByStudentsNumber,
+  getStudentByName,
   getStudentsSortedByFirstame,
   getStudentsSortedByLastname,
   getStudentsSortedByStudentNumber,
   addNewStudent,
   addStudentApplication,
   assignAdviser,
+  getStudentAdviser,
   getApprovers,
   addApprover,
   deleteApprover,
+  getApproverByName,
+  getApproversSortedByName,
+  getApplicationsByApprover
 };
