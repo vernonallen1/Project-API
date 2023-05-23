@@ -1,16 +1,23 @@
 import {
   getStudents,
   getStudentByStudentsNumber,
+  getStudentByName,
   getStudentsSortedByFirstame,
   getStudentsSortedByLastname,
   getStudentsSortedByStudentNumber,
   addNewStudent,
   addStudentApplication,
   assignAdviser,
+  getStudentAdviser,
   getApprovers,
   addApprover,
-  deleteApprover
-} from "./controllers/student-controller.js";
+  deleteApprover,
+  getApproverByName,
+  getApproversSortedByName,
+  getApplicationsByApprover
+} from "./controllers/user-controller.js";
+
+import {getAllApplications} from "./controllers/student-applications-controller.js"
 
 export default function router(app) {
   // Allow Cross Origin Resource Sharing
@@ -31,6 +38,7 @@ export default function router(app) {
   //Student
   app.get("/get-all-students", getStudents); //working
   app.post("/get-student-by-studentnumber", getStudentByStudentsNumber); //working
+  app.post("/get-student-by-name", getStudentByName); //working
   app.post("/get-students-sorted-by-firstname", getStudentsSortedByFirstame); //working
   app.post("/get-students-sorted-by-lastname", getStudentsSortedByLastname); //working
   app.post(
@@ -39,12 +47,19 @@ export default function router(app) {
   ); //working
   app.post("/add-new-student", addNewStudent); //working
   app.post("/add-student-application", addStudentApplication); //working
-  app.post("/assign-adviser", assignAdviser); //testing
+  app.post("/assign-adviser", assignAdviser); //working //referenced
+  app.post("/get-student-adviser", getStudentAdviser); //testing
 
   //Approver
   app.get("/get-all-approvers", getApprovers); //working
   app.post("/add-approver", addApprover); //working
   app.delete("/delete-approver/:approverEmail", deleteApprover); //working
+  app.post("/get-approver-by-name", getApproverByName); //working
+  app.post("/get-sorted-approvers", getApproversSortedByName); //working
+  app.post("/get-applications-by-approver", getApplicationsByApprover); //AWorking //referenced
 
+  //Applications
+  app.get("/get-all-applications", getAllApplications); //working
+  
   // Student Application APIs
 }

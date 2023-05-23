@@ -1,5 +1,47 @@
 [
-    {
-        "firstname" : "Jacob"
-    }
+  {
+    "status": "Cleared",
+    "step": 1,
+    "remarks": [
+      { "remark": "Finished with success" },
+      { "date": "2023-04-04T00:00:00.000Z" },
+      { "commenter": "hff73bf83bf8" },
+      { "stepgiven": 2 }
+    ],
+    "studentsubmission": [
+      { "remark": "Finished with success + link" },
+      { "date": "2023-04-04T00:00:00.000Z" },
+      { "stepgiven": 2 }
+    ]
+  },
+  {
+    "status": "Closed",
+    "step": 3,
+    "remarks": [
+      { "remark": "Second Application" },
+      { "date": "2022-11-24T12:30:01.000Z" },
+      { "commenter": "bawg84fbnd9e" },
+      { "stepgiven": 2 }
+    ],
+    "studentsubmission": [
+      { "remark": "Link to second page" },
+      { "date": "2022-11-24T12:30:01.000Z" },
+      { "stepgiven": 3 }
+    ]
+  },
+  {
+    "status": "Cleared",
+    "step": 3,
+    "remarks": [
+      { "remark": "Okay with congratulations" },
+      { "date": "2023-11-21T01:10:52.000Z" },
+      { "commenter": "hff73bf83bf8" },
+      { "stepgiven": 2 }
+    ],
+    "studentsubmission": [
+      { "remark": "There is an eagle on the top of the statue of poverty." },
+      { "date": "2023-11-21T11:09:36.000Z" },
+      { "stepgiven": 2 }
+    ]
+  }
 ]
